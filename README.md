@@ -53,4 +53,8 @@ curl -vk https://"$TSDB_IP":9090/api/v1/query?query="$PROMQL" \
 
 ```
 
-There is a sample `test_prompql.sh` in this repository that provides a working code example.
+There is a sample `test_promql.sh` in this repository that provides a working code example. Usage example: 
+
+```
+./test_promql.sh tas_sli_task_failures_total\&start=2023-02-01T20:10:30.781Z\&end=2023-02-02T20:11:00.781Z\&step=15s
+```

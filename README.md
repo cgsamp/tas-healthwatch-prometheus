@@ -7,7 +7,7 @@ Required:
 
 - Network access to the TSDB TAS component (Prometheus instance)
 - Access to the prometheus certificate authority, certificate, and private key
-- Execute permissions for script, set with "chmod 755 test_promql.sh
+- Execute permissions for script, set with "chmod 755 test_promql.sh"
 
 
 Usage:

@@ -1,6 +1,7 @@
 # tas-healthwatch-prometheus
 
 Sample code to connect to the Prometheus instance within TAS that supports Healthwatch2, and obtain some metrics.
+https://docs.pivotal.io/healthwatch/2-2/architecture.html
 
 Required:
 

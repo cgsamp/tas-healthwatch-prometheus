@@ -1,0 +1,1 @@
+(increase(tas_sli_task_failures_total{start="2023-02-01T20:10:30.781Z", end="2023-02-02T20:11:00.781Z", step="15s"}[28d]) / increase(tas_sli_task_runs_total{task="push", origin="tas-sli-exporter"}[28d]))

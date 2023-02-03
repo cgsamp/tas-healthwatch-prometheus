@@ -36,7 +36,8 @@ Log into OpsManager. Click on Healthwatch tile. Select Status. Note one of the I
 
 ## Executing PromQL
 
-Now that the credentials are stored, the `curl` command can be used.
+Now that the credentials are stored, the `curl` command can be used, as in this simple
+example that calls the basic query `up`.
 
 ```
 TSDB_IP=10.225.63.92
@@ -53,8 +54,20 @@ curl -vk https://"$TSDB_IP":9090/api/v1/query?query="$PROMQL" \
 
 ```
 
-There is a sample `test_promql.sh` in this repository that provides a working code example. Usage example: 
+There is a sample `test_promql.sh` in this repository that provides a working code example. To cleanly separate the query and curl machinery, the query is stored in
+a separate file called `query.promql`
 
-```
-./test_promql.sh tas_sli_task_failures_total\&start=2023-02-01T20:10:30.781Z\&end=2023-02-02T20:11:00.781Z\&step=15s
-```
+
+## Limitations and Improvements
+
+This code executes a single query with the `query` method. 
+
+- Enhance to call multiple queries.
+- Enhance to use other methods like `query_range`
+- Additional output testing on a wider range of test data
+
+### Other code
+
+This could be rewritten in Python or Java / Spring Boot. The key features to retain are:
+- Access to keys
+- urlencode the query

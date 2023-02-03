@@ -9,16 +9,16 @@ TSDB_CA=secret/tsdb_ca.pem
 TSDB_CERT=secret/tsdb_certificate.pem
 TSDB_KEY=secret/tsdb_certificate.key
 
-
 COMMAND=(
-curl -vk https://"$TSDB_IP":9090/api/v1/query?query="$@" --data-urlencode \
---cacert "$TSDB_CA" 
+curl -k \
+-G --data-urlencode query=$(cat query.promql) \
+https://"$TSDB_IP":9090/api/v1/query \
+--cacert "$TSDB_CA" \
 --cert  "$TSDB_CERT" \
 --key "$TSDB_KEY"
 )
 
 #echo "${COMMAND[@]}"
-
 
 #Pipe the curl command's status output to null to keep the response clean
 RESPONSE=$("${COMMAND[@]}" 2> /dev/null)
